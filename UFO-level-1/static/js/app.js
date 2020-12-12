@@ -88,7 +88,7 @@ function loadDataByDate()
         //appending to tbody - code is from slack overflow https://stackoverflow.com/questions/18333427
         var tBodyRef = document.getElementById('ufo-table').getElementsByTagName('tbody')[0];
 
-        tBodyRef.html("");
+        tBodyRef.innerHTML = '';
 
         tBodyRef.append(newRow);
     }
