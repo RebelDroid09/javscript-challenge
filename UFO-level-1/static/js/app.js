@@ -55,6 +55,11 @@ function loadDataByDate()
         return row.datetime == filterDate;
     })
 
+    //appending to tbody - code is from slack overflow https://stackoverflow.com/questions/18333427
+    var tBodyRef = document.getElementById('ufo-table').getElementsByTagName('tbody')[0];
+
+    tBodyRef.innerHTML = '';
+
     for (var i = 0; i < sightingsByDate.length; i++)
     {
         console.log(sightingsByDate[i])
@@ -84,12 +89,7 @@ function loadDataByDate()
         shapeColumn.innerText = sightingsByDate[i].shape;
         durationColumn.innerText = sightingsByDate[i].durationMinutes;
         commentColumn.innerText = sightingsByDate[i].comments;
-
-        //appending to tbody - code is from slack overflow https://stackoverflow.com/questions/18333427
-        var tBodyRef = document.getElementById('ufo-table').getElementsByTagName('tbody')[0];
-
-        tBodyRef.innerHTML = '';
-
+     
         tBodyRef.append(newRow);
     }
 }
