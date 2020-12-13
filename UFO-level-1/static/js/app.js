@@ -9,42 +9,6 @@ function createNewColumn()
 }
 
 // YOUR CODE HERE!
-for (var i = 0; i < tableData.length; i++)
-{
-    console.log(tableData[i])
-
-    var newRow = document.createElement("tr");
-
-    var dateColumn = createNewColumn();
-    var cityColumn = createNewColumn();
-    var stateColumn = createNewColumn();
-    var countryColumn = createNewColumn();
-    var shapeColumn = createNewColumn();
-    var durationColumn = createNewColumn();
-    var commentColumn = createNewColumn();
-
-    newRow.appendChild(dateColumn);
-    newRow.appendChild(cityColumn);
-    newRow.appendChild(stateColumn);
-    newRow.appendChild(countryColumn);
-    newRow.appendChild(shapeColumn);
-    newRow.appendChild(durationColumn);
-    newRow.appendChild(commentColumn);
-
-    dateColumn.innerText = tableData[i].datetime;
-    cityColumn.innerText = tableData[i].city;
-    stateColumn.innerText = tableData[i].state;
-    countryColumn.innerText = tableData[i].country;
-    shapeColumn.innerText = tableData[i].shape;
-    durationColumn.innerText = tableData[i].durationMinutes;
-    commentColumn.innerText = tableData[i].comments;
-
-    //appending to tbody - code is from slack overflow https://stackoverflow.com/questions/18333427
-    var tBodyRef = document.getElementById('ufo-table').getElementsByTagName('tbody')[0];
-
-    tBodyRef.append(newRow);
-}
-
 function loadDataByDate()
 {
     var filterDate = document.getElementById("datetime").value;
@@ -98,6 +62,8 @@ function loadDataByDate()
         tBodyRef.append(newRow);
     }
 }
+
+loadDataByDate();
 
 const dateTimeField = document.querySelector("#filter-btn");
 dateTimeField.addEventListener('click', loadDataByDate);
